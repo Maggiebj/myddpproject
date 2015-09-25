@@ -1,0 +1,45 @@
+MPG Calculation 
+========================================================
+
+a demonstration of MPG calculation base on regression model
+
+
+
+author      :Meng Xin
+
+`r date()`
+
+
+Develop Regression Model
+========================================================
+ * We used dataset"mtcars",fit and got the regression model on the relationship between mpg(mile per gallon)and transimission and other variables:
+
+**mpg=9.6178factor(am)0+12.5536factor(am)1-3.9165wt+1.2259qsec**
+
+ * 'am' is transmission(manual=0,automatic=1),'wt' is weight of car,'qsec' is speed in 1/4mile time.
+ * we use  9.6178 when transmission is manual, and use 12.5536 when transmission is automatic.
+ * We see the summary of the model in the next slide.Note the p-value is all<0.05.
+ 
+Develop Regression Model
+========================================================
+```{r,echo=FALSE}
+fit<-lm(mpg~factor(am)+wt+qsec-1,data=mtcars)
+summary(fit)
+```
+
+The Application 
+========================================================
+We develop an application by using the regression model to demonstrate mpg calculation.
+![alt text](figures/mpgcalculation.png)
+
+
+The Application 
+========================================================
+[The application](https://maggiebj.shinyapps.io/shinyproject)
+ is to calculate MPG when user input transmission, weight, speed of car and submit.The result of MPG is shown to the right in red.
+ 
+You can also copy link: https://maggiebj.shinyapps.io/shinyproject
+
+For some reasons, the application may can't be shown in the full screen in your browser, you may use scroll bar to the right to scroll and see it.
+
+
